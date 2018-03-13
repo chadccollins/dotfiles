@@ -1,28 +1,30 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "workbench.sideBar.location": "left",
+    "workbench.sideBar.location": "right",
+    "csharp.format.enable": false,
 
     "editor.fontSize": 12,
 
+    "editor.fontFamily": "Hasklig Medium, Source Code Pro, Consolas, 'Courier New', monospace",
+
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
     "vim.enableNeovim": true,
 
     "vim.neovimPath": "c:\\tools\\neovim\\neovim\\bin\\nvim.exe",
 
-    "editor.fontFamily": "Hasklig Medium, Source Code Pro, Consolas, 'Courier New', monospace",
-
-    "workbench.statusBar.feedback.visible": false,
-
-    "editor.fontLigatures": true,
-    "git.autofetch": true,
-    "csharp.format.enable": false,
     "vim.hlsearch": true,
     "vim.useSystemClipboard": true,
+    "workbench.statusBar.feedback.visible": false,
+
+    "git.autofetch": true,
     "git.enableSmartCommit": true,
     "window.zoomLevel": 0,
     "terminal.integrated.fontSize": 12,
-    "editor.minimap.enabled": false,
     "window.menuBarVisibility": "toggle",
     "vim.statusBarColorControl": true,
     "debug.openExplorerOnEnd": true,
-    "workbench.list.openMode": "doubleClick",
+    "workbench.list.openMode": "singleClick",
+    "workbench.activityBar.visible": true,
+    "editor.renderIndentGuides": false,
 }
