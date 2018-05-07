@@ -77,6 +77,13 @@
 	# Push to an upstream with some safety (upstream ref is expected)
 	push-please = push --force-with-lease
 
+	###########
+	# Visual Studio Ingegration via VSTS CLI
+	##########
+
+	# Create a command to call vsts cli for Pull Request creation
+		vsts-pr = "!vsts code pr create"
+
 	###################
 	# Function aliases
 	###################
