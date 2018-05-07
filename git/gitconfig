@@ -1,0 +1,156 @@
+[core]
+	excludesfile = ~/.gitignore # dotfiles hardlinked
+	attributesfile = ~/.gitattributes # dotfiles hardlinked
+	editor = vim
+[user]
+	name = Dustin Venegas
+	email = dustin.venegas@gmail.com
+[merge]
+	conflictstyle = diff3
+	tool = kdiff3
+	guitool = kdiff3
+[mergetool]
+	prompt = false
+[diff]
+	tool = vimdiff
+	guitool = kdiff3
+[push]
+	default = simple # Push a branch, assuming remote/local names match, to "origin"
+[rerere]
+	# Record, replay, resolve. Store manual resolutions
+	enabled = true
+	# Update the index after performing rerere actions
+	autoUpdate = true
+[remote "origin"]
+	# Removes origin remotes that were deleted
+	prune = true
+[log]
+	# Normalize dates to local machine time zone
+	date = local
+[format]
+	# Default git log format:
+	#
+	#     |- Commit hash
+	#     |       |- Commit message (short)
+	#     2d8c3e1 Region storage account should be in multiple regions
+	#     [Dustin Venegas] (Tue Oct 31 10:56:03 2017) (HEAD -> saRegionFix, origin/saRegionFix) {4906b57}
+	#     |                |                          |                                         |- Parents
+	#     |                |                          |- Reflog selector
+	#     |                |- Date (--date=utc,short,relative,etc works)
+	#     |- Author name
+	#
+	# %s, subject (first comment line)
+	# %n, newline
+	# C(auto), reset and automatically color text
+	# %h, short commit hash
+	# %aN, author name (supports .mailmap)
+	# %ad, author date
+	# %gd, reflog selector (master, origin/master, etc format)
+	# %d, decorates reflog selector with colors
+	# %p, parent commit hashes
+	pretty = format:%C(auto)%h%C(auto) %s%n  [%C(auto)%aN] (%C(auto)%ad)%gd%d {%p}%n
+[color "decorate"]
+	branch = green
+	remoteBranch = red
+	tag = white reverse
+	stash = cyan
+	HEAD = green reverse
+[color "branch"]
+	current = green reverse
+	local = green
+	remote = red
+[alias]
+	list-aliases = "!git config --list | grep alias | cut -c 7-"
+
+	############
+	# Utilities
+	############
+	# Intend the opposite of staging a file
+	unstage = reset HEAD
+
+	# Pull with rebase, pruning old commits after. Update all submodules.
+	up = !git pull --rebase
+
+	# Undo the last commit, adding the edits back to unstaged files
+	uncommit = reset HEAD^ --mixed
+
+	# Push to an upstream with some safety (upstream ref is expected)
+	push-please = push --force-with-lease
+
+	###################
+	# Function aliases
+	###################
+	# Current branch name
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+
+	####################
+	# Branch Management
+	####################
+	# Incoming and outgoing changesets
+	incoming = "!(git fetch --quiet && git log ..@{upstream})"
+	outgoing = "!(git fetch --quiet && git log @{upstream}..)"
+
+	# Merge the current branch into master
+	merge-into-master = !git checkout master && git merge @{-1}
+
+	# Push the current branch to the remote "origin", and set it to track
+	# the upstream branch
+	publish = "!git push --set-upstream origin $(git branch-name)"
+
+	# Delete the remote version of the current branch
+	unpublish = "!git push origin :$(git branch-name)"
+
+	# See all changes between current branch and master
+	master-diff = difftool origin/master...
+
+	# Delete any branches that have been merged into master
+	# See also: https://gist.github.com/robmiller/5133264
+	delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+	# Ran filter-branches? AFTER YOU VERIFY, run this. It deletes the backups from filter-branches at refs/original
+	delete-refs-original-backup = "!git for-each-ref --format='%(refname)' refs/original/ | xargs -n 1 git update-ref -d"
+
+	# Branches/refs/heads with owner (last commiter)
+	branch-owners = "!(git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n)"
+
+	#############
+	# Logs
+	#############
+	# Show commit log using graph notation; consider params --all, -20, etc
+	log- = log --abbrev-commit --decorate
+	log-graph = "!git log- --graph --topo-order"
+	log-graph-oneline = "!git log-graph --pretty=oneline"
+
+	# List commits showing changed files
+	log-numstat = "!git log- --numstat"
+
+	log-outgoing = log @{upstream}..
+	log-incoming = log ..@{upstream}
+
+	# Log with statistics
+	log-stat = "!git log- --stat"
+
+	# Remote branch heads or tagged
+	# --all, includes all branches, tags, stashes, etc
+	# --simplify-by-decoration, simple ref names; ref/heads/master -> master
+	# --boundary, includes bounding commits so parents are displayed
+	log-branch = log --graph --decorate --boundary --all --simplify-by-decoration
+
+	#############
+	# Aliases
+	#############
+
+	lg = !git log-graph
+	ln = !git log-numstat
+	ls = !git log-stat
+	lb = !git log-branch
+
+[include]
+	# Git configuration for Operating System specific configuration
+	path = .gitconfig_os
+
+	# Local git configuration, to be created by the user on each machine, as desired
+	path = .gitconfig_local
+
+# Modeline or non-standard named .gitconfig
+# vim:fileformat=unix filetype=.gitconfig
