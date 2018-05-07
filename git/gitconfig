@@ -3,8 +3,8 @@
 	attributesfile = ~/.gitattributes # dotfiles hardlinked
 	editor = vim
 [user]
-	name = Dustin Venegas
-	email = dustin.venegas@gmail.com
+	name = Chad Collins
+	email = chad.c.collins@gmail.com
 [merge]
 	conflictstyle = diff3
 	tool = kdiff3
@@ -62,6 +62,22 @@
 [alias]
 	list-aliases = "!git config --list | grep alias | cut -c 7-"
 
+	##########
+	# Shorcuts
+	##########
+
+	# All day, every day.
+	co = checkout
+
+	# Checkout, but with -b for new branch
+	cob = checkout -back
+
+	# Stage and Commit everything you've been working on
+	cm = "!git add -A && git commit -m"
+
+	# Save a work in progress
+	save = "!git add -A && git commit -m 'SAVEPOINT'"
+
 	############
 	# Utilities
 	############
@@ -77,12 +93,12 @@
 	# Push to an upstream with some safety (upstream ref is expected)
 	push-please = push --force-with-lease
 
-	###########
+	########################################
 	# Visual Studio Ingegration via VSTS CLI
-	##########
+	########################################
 
 	# Create a command to call vsts cli for Pull Request creation
-		vsts-pr = "!vsts code pr create"
+	vsts-pr = "!vsts code pr create"
 
 	###################
 	# Function aliases
