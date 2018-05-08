@@ -42,7 +42,8 @@ Process {
         $dest = $PSScriptRoot
 		
         # Copy all the *.json settings files from [User]\AppData\Roaming\Code\User into .
-        Get-ChildItem $source -Recurse -Include "*.json" -Exclude "meta.json" | New-Item -ItemType File -Path {Join-Path $dest $_.FullName.Substring($source.Length)} -Force
+        #Get-ChildItem $source -Recurse -Include "*.json" -Exclude "meta.json" | New-Item -ItemType File -Path {Join-Path $dest $_.FullName.Substring($source.Length)} -Force
+	Copy-Item (Join-Path "$env:APPDATA" "Code\User\") -Destination $dest -Recurse -Force
 
         # Write out all the install extensions to the 'extensions' file
         code --list-extensions | Out-File .\extensions -Encoding UTF8
