@@ -70,7 +70,7 @@
 	co = checkout
 
 	# Checkout, but with -b for new branch
-	cob = checkout -back
+	cob = checkout -b
 
 	# Stage and Commit everything you've been working on
 	cm = "!git add -A && git commit -m"
