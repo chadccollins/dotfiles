@@ -10,9 +10,8 @@ Set-StrictMode -Version Latest
 
 function Write-MessageOfTheDay
 {
-    Write-Figlet -f='small' "$env:Username@" | Write-Host -ForegroundColor yellow
-    Write-Figlet -f='smslant' $env:COMPUTERNAME | Write-Host -ForegroundColor Green
-    Write-Output "I'd like to see you move up to the emu class, where I think you belong."
+    Write-Output "Hello $env:Username@$env:COMPUTERNAME, how are you today?"
+    Write-Output "TODO: Add some useful thing here."
 }
 
 function Set-PowerShellHostCustomColor
