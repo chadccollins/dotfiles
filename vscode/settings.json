@@ -3,7 +3,7 @@
     "workbench.sideBar.location": "right",
     "csharp.format.enable": false,
 
-    "editor.fontSize": 12,
+    "editor.fontSize": 11.5,
 
     "editor.fontFamily": "Hasklig Medium, Source Code Pro, Consolas, 'Courier New', monospace",
 
@@ -25,10 +25,24 @@
     "vim.statusBarColorControl": true,
     "debug.openExplorerOnEnd": true,
     "workbench.list.openMode": "singleClick",
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "csharpfixformat.style.braces.onSameLine": false,
     "debug.openDebug": "openOnSessionStart",
     "python.unitTest.unittestEnabled": true,
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "newUntitledFile",
+    "debug.toolBarLocation": "docked",
+    "explorer.confirmDelete": false,
+    "files.autoSave": "onWindowChange",
+    "editor.fontWeight": "normal",
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.codeLens": false,
+    "terminal.integrated.rendererType": "dom",
 }
