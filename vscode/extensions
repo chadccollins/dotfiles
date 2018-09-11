@@ -1,7 +1,9 @@
-﻿dracula-theme.theme-dracula
+﻿[createInstance] extensionManagementService depends on downloadService which is NOT registered.
+dracula-theme.theme-dracula
 eamodio.gitlens
 EditorConfig.EditorConfig
 formulahendry.dotnet-test-explorer
+GitHub.vscode-pull-request-github
 Ionide.Ionide-fsharp
 jmrog.vscode-nuget-package-manager
 k--kato.docomment
