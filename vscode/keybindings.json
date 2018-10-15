@@ -7,5 +7,9 @@
     {
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+w ctrl+w",
+        "command": "workbench.action.duplicateWorkspaceInNewWindow"
     }
 ]

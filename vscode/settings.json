@@ -43,7 +43,6 @@
         "statusBar.debuggingBackground": "#005f5f"
     },
     "workbench.colorTheme": "Visual Studio Dark",
-    "editor.codeLens": false,
     "terminal.integrated.rendererType": "dom",
     "window.titleBarStyle": "custom",
     "github.hosts": [
@@ -53,4 +52,5 @@
             "token": "system"
         }
     ],
+    "breadcrumbs.enabled": false,
 }
